@@ -119,12 +119,13 @@ public class Player : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.BoxCast(collLeg.bounds.center, collLeg.bounds.size, 0f, Vector2.down, groundRatio, LayerMask.GetMask("Ground"));
 
-            if(hit)
+            if(hit.transform != null && hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 isGround = true;
             }
         }
     }
+
 
     private void checkGravity()
     {
